@@ -11,7 +11,7 @@ const Home = () => {
         title={
           "Welcome to MediCore Medical Institute | Your Trusted Healthcare Provider"
         }
-        imageUrl={"/contact.png"}
+        imageUrl={"./public/contact.png"}
       />
       <Departments />
       <MessageForm />

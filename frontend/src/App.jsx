@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./Pages/Home";
 import Appointment from "./Pages/Appointment";
 import AboutUs from "./Pages/AboutUs";
@@ -40,14 +40,14 @@ const App = () => {
     };
 
     fetchUser();
-  }, []); // Run only once when component mounts
+  }, []);
 
   if (loading) {
     return <div className="flex items-center justify-center h-screen text-lg">Loading...</div>;
   }
 
   return (
-    <Router>
+    <Router basename="/MediCore/">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -61,4 +61,5 @@ const App = () => {
     </Router>
   );
 };
+
 export default App;

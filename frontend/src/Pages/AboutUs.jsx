@@ -6,9 +6,9 @@ const AboutUs = () => {
     <>
       <Hero
         title={"Learn More About Us | MediCore Medical Institute"}
-        imageUrl={"/about.png"}
+        imageUrl={"./public/about.png"}
       />
-      <Biography imageUrl={"/whoweare.png"} />
+      <Biography imageUrl={"./public/whoweare.png"} />
     </>
   );
 };

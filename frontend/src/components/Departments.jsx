@@ -4,15 +4,15 @@ import "react-multi-carousel/lib/styles.css";
 
 const Departments = () => {
   const departmentsArray = [
-    { name: "Pediatrics", imageUrl: "/departments/pedia.jpg" },
-    { name: "Orthopedics", imageUrl: "/departments/ortho.jpg" },
-    { name: "Cardiology", imageUrl: "/departments/cardio.jpg" },
-    { name: "Neurology", imageUrl: "/departments/neuro.jpg" },
-    { name: "Oncology", imageUrl: "/departments/onco.jpg" },
-    { name: "Radiology", imageUrl: "/departments/radio.jpg" },
-    { name: "Physical Therapy", imageUrl: "/departments/therapy.jpg" },
-    { name: "Dermatology", imageUrl: "/departments/derma.jpg" },
-    { name: "ENT", imageUrl: "/departments/ent.jpg" },
+    { name: "Pediatrics", imageUrl: "./public/departments/pedia.jpg" },
+    { name: "Orthopedics", imageUrl: "./public/departments/ortho.jpg" },
+    { name: "Cardiology", imageUrl: "./public/departments/cardio.jpg" },
+    { name: "Neurology", imageUrl: "./public/departments/neuro.jpg" },
+    { name: "Oncology", imageUrl: "./public/departments/onco.jpg" },
+    { name: "Radiology", imageUrl: "./public/departments/radio.jpg" },
+    { name: "Physical Therapy", imageUrl: "./public/departments/therapy.jpg" },
+    { name: "Dermatology", imageUrl: "./public/departments/derma.jpg" },
+    { name: "ENT", imageUrl: "./public/departments/ent.jpg" },
   ];
 
   const responsive = {

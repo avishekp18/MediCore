@@ -13,7 +13,7 @@ const Navbar = () => {
   const handleLogout = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:4000/api/v1/user/patient/logout",
+        `${import.meta.env.VITE_API_URL}/api/v1/user/patient/logout`,
         { withCredentials: true }
       );
       toast.success(res.data.message);
@@ -29,33 +29,30 @@ const Navbar = () => {
 
   return (
     <nav className="navbar container">
-      {/* Logo Section */}
       <div className="logo">
         <span className="logo-text">
           Medi<span className="logo-highlight">Core</span>
         </span>
       </div>
 
-      {/* Links */}
       <div className={show ? "navLinks showmenu" : "navLinks"}>
         <div className="links">
-          <Link to="/" onClick={() => setShow(false)}>Home</Link>
-          <Link to="/appointment" onClick={() => setShow(false)}>Appointment</Link>
-          <Link to="/about" onClick={() => setShow(false)}>About Us</Link>
+          <Link to="./" onClick={() => setShow(false)}>Home</Link>
+          <Link to="appointment" onClick={() => setShow(false)}>Appointment</Link>
+          <Link to="about" onClick={() => setShow(false)}>About Us</Link>
         </div>
 
         {isAuthenticated ? (
           <button className="logoutBtn btn" onClick={handleLogout}>
-            LOGOUT
+            LOGIN
           </button>
         ) : (
           <button className="loginBtn btn" onClick={goToLogin}>
-            LOGIN
+            LOGOUT
           </button>
         )}
       </div>
 
-      {/* Hamburger Icon */}
       <div className="hamburger" onClick={() => setShow(!show)}>
         <GiHamburgerMenu />
       </div>
