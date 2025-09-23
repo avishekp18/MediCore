@@ -4,15 +4,15 @@ import "react-multi-carousel/lib/styles.css";
 
 const Departments = () => {
   const departmentsArray = [
-    { name: "Pediatrics", imageUrl: "./public/departments/pedia.jpg" },
-    { name: "Orthopedics", imageUrl: "./public/departments/ortho.jpg" },
-    { name: "Cardiology", imageUrl: "./public/departments/cardio.jpg" },
-    { name: "Neurology", imageUrl: "./public/departments/neuro.jpg" },
-    { name: "Oncology", imageUrl: "./public/departments/onco.jpg" },
-    { name: "Radiology", imageUrl: "./public/departments/radio.jpg" },
-    { name: "Physical Therapy", imageUrl: "./public/departments/therapy.jpg" },
-    { name: "Dermatology", imageUrl: "./public/departments/derma.jpg" },
-    { name: "ENT", imageUrl: "./public/departments/ent.jpg" },
+    { name: "Pediatrics", imageUrl: "/departments/pedia.jpg" },
+    { name: "Orthopedics", imageUrl: "/departments/ortho.jpg" },
+    { name: "Cardiology", imageUrl: "/departments/cardio.jpg" },
+    { name: "Neurology", imageUrl: "/departments/neuro.jpg" },
+    { name: "Oncology", imageUrl: "/departments/onco.jpg" },
+    { name: "Radiology", imageUrl: "/departments/radio.jpg" },
+    { name: "Physical Therapy", imageUrl: "/departments/therapy.jpg" },
+    { name: "Dermatology", imageUrl: "/departments/derma.jpg" },
+    { name: "ENT", imageUrl: "/departments/ent.jpg" },
   ];
 
   const responsive = {
@@ -23,26 +23,40 @@ const Departments = () => {
   };
 
   return (
-    <div className="container departments">
-      <h2>Departments</h2>
-      <Carousel
-        responsive={responsive}
-        infinite
-        autoPlay
-        autoPlaySpeed={2500}
-        keyBoardControl
-        removeArrowOnDeviceType={["tablet", "mobile"]}
-        containerClass="carousel-container"
-        itemClass="carousel-item-padding-40-px"
-      >
-        {departmentsArray.map(({ name, imageUrl }, index) => (
-          <div key={index} className="card">
-            <div className="depart-name">{name}</div>
-            <img src={imageUrl} alt={`${name} Department`} loading="lazy" />
-          </div>
-        ))}
-      </Carousel>
-    </div>
+    <section className="bg-gray-50 py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">
+          Departments
+        </h2>
+        <Carousel
+          responsive={responsive}
+          infinite
+          autoPlay
+          autoPlaySpeed={2500}
+          keyBoardControl
+          removeArrowOnDeviceType={["tablet", "mobile"]}
+          containerClass="carousel-container z-0"
+          itemClass="carousel-item-padding-40-px"
+        >
+          {departmentsArray.map(({ name, imageUrl }, index) => (
+            <div
+              key={index}
+              className="relative bg-white rounded-xl shadow-lg overflow-hidden m-2 hover:scale-105 transition-transform duration-300"
+            >
+              <img
+                src={imageUrl}
+                alt={`${name} Department`}
+                loading="lazy"
+                className="w-full h-56 object-cover"
+              />
+              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white bg-opacity-90 px-4 py-2 rounded-full text-gray-800 font-semibold shadow">
+                {name}
+              </div>
+            </div>
+          ))}
+        </Carousel>
+      </div>
+    </section>
   );
 };
 
