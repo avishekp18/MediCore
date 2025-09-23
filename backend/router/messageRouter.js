@@ -3,10 +3,18 @@ import {
   getAllMessages,
   sendMessage,
 } from "../controller/messageController.js";
-import { isAdminAuthenticated } from "../middlewares/auth.js";
+import { authenticate, isAuthorized } from "../middlewares/auth.js";
+
 const router = express.Router();
 
-router.post("/send", sendMessage);
-router.get("/getall", isAdminAuthenticated, getAllMessages);
+// Send a message (restricted to Admin or Patient)
+router.post(
+  "/",
+  authenticate("Patient", "patientToken"), // or "Admin", "adminToken"
+  sendMessage
+);
+
+// Get all messages (Admin only)
+router.get("/", authenticate("Admin", "adminToken"), getAllMessages);
 
 export default router;
