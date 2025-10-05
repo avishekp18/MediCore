@@ -116,8 +116,6 @@ It includes modules for **patients**, **appointments**, **messages**, and an **a
 
 ## 📸 Screenshots
 
-> Replace these placeholders with your actual screenshots
-
 ![Preview Screenshot](<./frontend/public/Screenshot%20(250).png>)
 
 ---
