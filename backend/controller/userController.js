@@ -47,7 +47,7 @@ export const patientRegister = catchAsyncErrors(async (req, res, next) => {
     nic,
     dob,
     gender,
-    password, // Make sure User schema hashes password in pre-save middleware
+    password,
     role: "Patient",
   });
 
