@@ -1,6 +1,6 @@
 # MediCore — Secure Medical Records for Expats
 
-![MediCore Logo](./assets/logo.png)  <!-- Replace with your actual logo file -->
+![MediCore Logo](.frontend/public/favicon.ico)  <!-- Replace with your actual logo file -->
 
 MediCore is a secure web application designed to help expatriates manage their medical records efficiently. It provides features like health record storage, appointment scheduling, and data visualization to ensure seamless healthcare management across borders.
 
