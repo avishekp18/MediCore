@@ -8,9 +8,10 @@ import { errorMiddleware } from "./middlewares/error.js";
 import messageRouter from "./router/messageRouter.js";
 import userRouter from "./router/userRouter.js";
 import appointmentRouter from "./router/appointmentRouter.js";
+import path from "path";
 
 const app = express();
-config({ path: "./config.env" });
+config({ path: "./.env" });
 
 app.use(
   cors({
@@ -27,7 +28,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(
   fileUpload({
     useTempFiles: true,
-    tempFileDir: "/tmp/",
+    tempFileDir: path.join(process.cwd(), "tmp/"), // <-- Windows-friendly path
   })
 );
 app.use("/api/v1/message", messageRouter);

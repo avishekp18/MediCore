@@ -4,17 +4,32 @@ import {
   getAllAppointments,
   postAppointment,
   updateAppointmentStatus,
+  getUserAppointments,
 } from "../controller/appointmentController.js";
-import {
-  isAdminAuthenticated,
-  isPatientAuthenticated,
-} from "../middlewares/auth.js";
+import { authenticate, isAuthorized } from "../middlewares/auth.js";
 
 const router = express.Router();
 
-router.post("/post", isPatientAuthenticated, postAppointment);
-router.get("/getall", isAdminAuthenticated, getAllAppointments);
-router.put("/update/:id", isAdminAuthenticated, updateAppointmentStatus);
-router.delete("/delete/:id", isAdminAuthenticated, deleteAppointment);
+// Create appointment (Patient only)
+router.post("/", authenticate("Patient", "patientToken"), postAppointment);
+
+// Get all appointments (Admin only)
+router.get("/", authenticate("Admin", "adminToken"), getAllAppointments);
+
+// Update appointment status (Admin only)
+router.put(
+  "/:id",
+  authenticate("Admin", "adminToken"),
+  updateAppointmentStatus
+);
+
+router.get(
+  "/user/:id",
+  authenticate("Patient", "patientToken"),
+  getUserAppointments
+);
+
+// Delete appointment (Admin only)
+router.delete("/:id", authenticate("Admin", "adminToken"), deleteAppointment);
 
 export default router;
